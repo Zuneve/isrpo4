@@ -60,7 +60,8 @@ class Triangle:
     def perimeter(a, b, c): 
         '''Принимает числа a, b, c, возвращает периметр треугольника 
         со сторонами  a, b, c'''
-        if a > 0 and b > 0 and c > 0:
+        p = sorted([a, b, c])
+        if a > 0 and b > 0 and c > 0 and p[0] + p[1] > p[2]:
             return a + b + c
         else:
             return -1
@@ -71,4 +72,4 @@ class Triangle:
         if a <= 0 or b <= 0 or c <= 0:
             return False
         a, b, c = min(a, b, c), a + b + c - min(a, b, c) - max(a, b, c), max(a, b, c)
-        return a + b < c
+        return a + b > c
